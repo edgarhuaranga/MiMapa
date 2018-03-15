@@ -21,6 +21,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 import org.json.JSONArray;
@@ -32,6 +33,7 @@ import java.util.List;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,Response.Listener<String>, Response.ErrorListener {
 
     private GoogleMap mMap;
+    Polyline ultimatePolyline;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,7 +102,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             List<LatLng> list = decodePoly(encodedString);
 
-            PolylineOptions options = new PolylineOptions().width(15).color(Color.RED).geodesic(true);
+            PolylineOptions options = new PolylineOptions().width(5).color(Color.BLUE).geodesic(true);
             for (int z = 0; z < list.size(); z++) {
                 LatLng point = list.get(z);
                 options.add(point);
